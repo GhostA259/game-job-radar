@@ -2,8 +2,8 @@ name: Game Job Radar (12-Hour & On-Demand)
 
 on:
   schedule:
-    # Runs automatically every 12 hours (12:00 AM and 12:00 PM UTC)
-    - cron: '0 0,12 * * *'
+    # Runs at minute 15 and 45 of every hour (avoids top-of-the-hour GitHub queue congestion!)
+    - cron: '15,45 * * * *'
   workflow_dispatch: # Enables the manual "Run workflow" button on mobile/desktop
 
 permissions:
