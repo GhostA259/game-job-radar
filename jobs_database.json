@@ -1,6 +1,6 @@
 {
-  "last_scraped": "2026-10-24 22:15 UTC",
-  "total_jobs": 56,
+  "last_scraped": "2026-10-24 22:49 UTC",
+  "total_jobs": 37,
   "jobs": [
     {
       "id": "c79a41b35d80",
@@ -13,7 +13,8 @@
       "url": "https://www.workwithindies.com/careers/alex-le-mesurier-freelance-game-narrative-designer",
       "date_updated": "2026-10-24 21:57 UTC",
       "raw_date": "Fri, 23 Oct 2026 00:00:00 GMT",
-      "source": "Work With Indies"
+      "source": "Work With Indies",
+      "engine": "Proprietary / Any"
     },
     {
       "id": "28b152ad1878",
@@ -26,33 +27,8 @@
       "url": "https://www.workwithindies.com/careers/zovian-games-freelance-ui-ux-designer-web",
       "date_updated": "2026-10-24 21:57 UTC",
       "raw_date": "Thu, 22 Oct 2026 00:00:00 GMT",
-      "source": "Work With Indies"
-    },
-    {
-      "id": "12d3aa652f64",
-      "title": "Triband is hiring a Senior World Designer to work from Copenhagen, DK",
-      "company": "Work With Indies",
-      "location": "Remote / Check Listing",
-      "category": "Level & Game Design",
-      "experience_level": "Senior",
-      "job_type": "Full-Time",
-      "url": "https://www.workwithindies.com/careers/triband-senior-world-designer",
-      "date_updated": "2026-10-24 21:57 UTC",
-      "raw_date": "Tue, 20 Oct 2026 00:00:00 GMT",
-      "source": "Work With Indies"
-    },
-    {
-      "id": "4710b4d5b257",
-      "title": "Triband is hiring a Senior UI/UX Designer to work from Copenhagen, DK",
-      "company": "Work With Indies",
-      "location": "Remote / Check Listing",
-      "category": "Level & Game Design",
-      "experience_level": "Senior",
-      "job_type": "Full-Time",
-      "url": "https://www.workwithindies.com/careers/triband-senior-ui-ux-designer",
-      "date_updated": "2026-10-24 21:57 UTC",
-      "raw_date": "Tue, 20 Oct 2026 00:00:00 GMT",
-      "source": "Work With Indies"
+      "source": "Work With Indies",
+      "engine": "Proprietary / Any"
     },
     {
       "id": "fd5d57200bcb",
@@ -65,7 +41,8 @@
       "url": "https://www.workwithindies.com/careers/extropia-labs-narrative-designer",
       "date_updated": "2026-10-24 21:57 UTC",
       "raw_date": "Fri, 16 Oct 2026 00:00:00 GMT",
-      "source": "Work With Indies"
+      "source": "Work With Indies",
+      "engine": "Proprietary / Any"
     },
     {
       "id": "bda873bb4442",
@@ -78,7 +55,8 @@
       "url": "https://www.workwithindies.com/careers/mysteria-studio-unreal-cinematic-designer",
       "date_updated": "2026-10-24 21:57 UTC",
       "raw_date": "Fri, 16 Oct 2026 00:00:00 GMT",
-      "source": "Work With Indies"
+      "source": "Work With Indies",
+      "engine": "Unreal Engine"
     },
     {
       "id": "28541903cc19",
@@ -91,7 +69,8 @@
       "url": "https://www.workwithindies.com/careers/table-knight-games-multi-skilled-technical-game-designer",
       "date_updated": "2026-10-24 21:57 UTC",
       "raw_date": "Thu, 15 Oct 2026 00:00:00 GMT",
-      "source": "Work With Indies"
+      "source": "Work With Indies",
+      "engine": "Proprietary / Any"
     },
     {
       "id": "ead5690ba3d2",
@@ -104,7 +83,8 @@
       "url": "https://www.workwithindies.com/careers/skymap-games-technical-game-designer",
       "date_updated": "2026-10-24 21:57 UTC",
       "raw_date": "Wed, 14 Oct 2026 00:00:00 GMT",
-      "source": "Work With Indies"
+      "source": "Work With Indies",
+      "engine": "Unity"
     },
     {
       "id": "e5b054cfaff9",
@@ -117,7 +97,8 @@
       "url": "https://www.workwithindies.com/careers/veelpoot-level-designer",
       "date_updated": "2026-10-24 21:57 UTC",
       "raw_date": "Wed, 14 Oct 2026 00:00:00 GMT",
-      "source": "Work With Indies"
+      "source": "Work With Indies",
+      "engine": "Proprietary / Any"
     },
     {
       "id": "b80bf69f7882",
@@ -130,7 +111,8 @@
       "url": "https://www.workwithindies.com/careers/eleon-co-game-designer-game-balancer",
       "date_updated": "2026-10-24 21:57 UTC",
       "raw_date": "Wed, 14 Oct 2026 00:00:00 GMT",
-      "source": "Work With Indies"
+      "source": "Work With Indies",
+      "engine": "Proprietary / Any"
     },
     {
       "id": "e75754b5e989",
@@ -143,20 +125,8 @@
       "url": "https://www.workwithindies.com/careers/folded-reality-game-designer",
       "date_updated": "2026-10-24 21:57 UTC",
       "raw_date": "Mon, 12 Oct 2026 00:00:00 GMT",
-      "source": "Work With Indies"
-    },
-    {
-      "id": "b67b88f116ea",
-      "title": "AstroNomad Studios is hiring a Senior Level Designer to work from North America",
-      "company": "Work With Indies",
-      "location": "Remote / Check Listing",
-      "category": "Level & Game Design",
-      "experience_level": "Senior",
-      "job_type": "Full-Time",
-      "url": "https://www.workwithindies.com/careers/astronomad-studios-senior-level-designer",
-      "date_updated": "2026-10-24 21:57 UTC",
-      "raw_date": "Fri, 09 Oct 2026 00:00:00 GMT",
-      "source": "Work With Indies"
+      "source": "Work With Indies",
+      "engine": "Proprietary / Any"
     },
     {
       "id": "985774f05d6e",
@@ -169,7 +139,8 @@
       "url": "https://www.workwithindies.com/careers/torpor-games-ui-ux-designer-m-f-d",
       "date_updated": "2026-10-24 21:57 UTC",
       "raw_date": "Thu, 08 Oct 2026 00:00:00 GMT",
-      "source": "Work With Indies"
+      "source": "Work With Indies",
+      "engine": "Proprietary / Any"
     },
     {
       "id": "61dfb8b37eed",
@@ -182,7 +153,8 @@
       "url": "https://www.workwithindies.com/careers/cosmic-dog-level-designer",
       "date_updated": "2026-10-24 21:57 UTC",
       "raw_date": "Wed, 07 Oct 2026 00:00:00 GMT",
-      "source": "Work With Indies"
+      "source": "Work With Indies",
+      "engine": "Proprietary / Any"
     },
     {
       "id": "f9c706982a8a",
@@ -195,7 +167,8 @@
       "url": "https://www.workwithindies.com/careers/lunacy-studios-unreal-5-programmer-gameplay-ui",
       "date_updated": "2026-10-24 21:57 UTC",
       "raw_date": "Tue, 06 Oct 2026 00:00:00 GMT",
-      "source": "Work With Indies"
+      "source": "Work With Indies",
+      "engine": "Unreal Engine"
     },
     {
       "id": "07259fe00d37",
@@ -208,7 +181,8 @@
       "url": "https://www.workwithindies.com/careers/drinkbox-studios-qa-specialist",
       "date_updated": "2026-10-24 21:57 UTC",
       "raw_date": "Tue, 06 Oct 2026 00:00:00 GMT",
-      "source": "Work With Indies"
+      "source": "Work With Indies",
+      "engine": "Proprietary / Any"
     },
     {
       "id": "aac2c254d2e0",
@@ -221,20 +195,8 @@
       "url": "https://www.workwithindies.com/careers/lando-scratch-game-designer",
       "date_updated": "2026-10-24 21:57 UTC",
       "raw_date": "Tue, 06 Oct 2026 00:00:00 GMT",
-      "source": "Work With Indies"
-    },
-    {
-      "id": "47d01830b80f",
-      "title": "Failbetter Games is hiring a Writer & Narrative Designer (Senior/Mid-Level) to work from Anywhere",
-      "company": "Work With Indies",
-      "location": "Remote / Check Listing",
-      "category": "Level & Game Design",
-      "experience_level": "Senior",
-      "job_type": "Full-Time",
-      "url": "https://www.workwithindies.com/careers/failbetter-games-writer-narrative-designer-senior-mid-level",
-      "date_updated": "2026-10-24 21:57 UTC",
-      "raw_date": "Wed, 30 Sep 2026 00:00:00 GMT",
-      "source": "Work With Indies"
+      "source": "Work With Indies",
+      "engine": "Proprietary / Any"
     },
     {
       "id": "c1f9187aa6eb",
@@ -247,7 +209,8 @@
       "url": "https://www.workwithindies.com/careers/kaleidoscube-gameplay-polish-technical-designer-artist-f-m-d",
       "date_updated": "2026-10-24 21:57 UTC",
       "raw_date": "Wed, 30 Sep 2026 00:00:00 GMT",
-      "source": "Work With Indies"
+      "source": "Work With Indies",
+      "engine": "Unreal Engine"
     },
     {
       "id": "2c45dec7b53b",
@@ -260,7 +223,8 @@
       "url": "https://www.workwithindies.com/careers/makera-games-game-designer-systems-liveops",
       "date_updated": "2026-10-24 21:57 UTC",
       "raw_date": "Tue, 29 Sep 2026 00:00:00 GMT",
-      "source": "Work With Indies"
+      "source": "Work With Indies",
+      "engine": "Unity"
     },
     {
       "id": "ff8c2d13a0f5",
@@ -273,33 +237,8 @@
       "url": "https://www.workwithindies.com/careers/meeple-corp-game-designer",
       "date_updated": "2026-10-24 21:57 UTC",
       "raw_date": "Fri, 25 Sep 2026 00:00:00 GMT",
-      "source": "Work With Indies"
-    },
-    {
-      "id": "d3a47dc3519e",
-      "title": "AstroNomad Studios is hiring a Senior Systems Game Designer to work from North America",
-      "company": "Work With Indies",
-      "location": "Remote / Check Listing",
-      "category": "Level & Game Design",
-      "experience_level": "Senior",
-      "job_type": "Full-Time",
-      "url": "https://www.workwithindies.com/careers/astronomad-studios-senior-systems-game-designer",
-      "date_updated": "2026-10-24 21:57 UTC",
-      "raw_date": "Fri, 25 Sep 2026 00:00:00 GMT",
-      "source": "Work With Indies"
-    },
-    {
-      "id": "966b47417015",
-      "title": "Triplo Z is hiring a Senior Gameplay & Multiplayer Programmer (Unreal) to work from Brazil or LATAM",
-      "company": "Work With Indies",
-      "location": "Remote / Check Listing",
-      "category": "Tech & Systems Design",
-      "experience_level": "Senior",
-      "job_type": "Contract",
-      "url": "https://www.workwithindies.com/careers/triplo-z-senior-gameplay-multiplayer-programmer-unreal",
-      "date_updated": "2026-10-24 21:57 UTC",
-      "raw_date": "Tue, 22 Sep 2026 00:00:00 GMT",
-      "source": "Work With Indies"
+      "source": "Work With Indies",
+      "engine": "Proprietary / Any"
     },
     {
       "id": "ad1668ab15db",
@@ -312,7 +251,8 @@
       "url": "https://www.workwithindies.com/careers/cold-symmetry-technical-game-designer",
       "date_updated": "2026-10-24 21:57 UTC",
       "raw_date": "Thu, 17 Sep 2026 00:00:00 GMT",
-      "source": "Work With Indies"
+      "source": "Work With Indies",
+      "engine": "Proprietary / Any"
     },
     {
       "id": "c350aa4b9c10",
@@ -325,7 +265,8 @@
       "url": "https://www.workwithindies.com/careers/studio-nuwa-game-designer",
       "date_updated": "2026-10-24 21:57 UTC",
       "raw_date": "Thu, 17 Sep 2026 00:00:00 GMT",
-      "source": "Work With Indies"
+      "source": "Work With Indies",
+      "engine": "Proprietary / Any"
     },
     {
       "id": "5b2cb530a8ea",
@@ -338,7 +279,8 @@
       "url": "https://www.workwithindies.com/careers/cm-immersive-qa-engineer",
       "date_updated": "2026-10-24 21:57 UTC",
       "raw_date": "Tue, 15 Sep 2026 00:00:00 GMT",
-      "source": "Work With Indies"
+      "source": "Work With Indies",
+      "engine": "Proprietary / Any"
     },
     {
       "id": "85eb4dbdbe13",
@@ -351,7 +293,8 @@
       "url": "https://www.workwithindies.com/careers/robot-entertainment-level-designer",
       "date_updated": "2026-10-24 21:57 UTC",
       "raw_date": "Mon, 14 Sep 2026 00:00:00 GMT",
-      "source": "Work With Indies"
+      "source": "Work With Indies",
+      "engine": "Unreal Engine"
     },
     {
       "id": "fcc09a325b0f",
@@ -364,7 +307,8 @@
       "url": "https://www.workwithindies.com/careers/dead-velvet-level-designer-level-design-mentor",
       "date_updated": "2026-10-24 21:57 UTC",
       "raw_date": "Fri, 11 Sep 2026 00:00:00 GMT",
-      "source": "Work With Indies"
+      "source": "Work With Indies",
+      "engine": "Proprietary / Any"
     },
     {
       "id": "051be9a08cf4",
@@ -377,7 +321,8 @@
       "url": "https://remotefirstjobs.com/companies/justlife/jobs/qa-engineer-remote-875376",
       "date_updated": "2026-10-24 21:57 UTC",
       "raw_date": "Sat, 24 Oct 2026 02:02:13 +0000",
-      "source": "RemoteFirst QA"
+      "source": "RemoteFirst QA",
+      "engine": "Proprietary / Any"
     },
     {
       "id": "d2cb95b97d66",
@@ -390,20 +335,8 @@
       "url": "https://remotefirstjobs.com/companies/justlife/jobs/qa-engineer-remote-875372",
       "date_updated": "2026-10-24 21:57 UTC",
       "raw_date": "Sat, 24 Oct 2026 01:57:58 +0000",
-      "source": "RemoteFirst QA"
-    },
-    {
-      "id": "7295270d2ff3",
-      "title": "Senior UX Designer (Contractor) at Findem",
-      "company": "Findem",
-      "location": "Remote / Check Listing",
-      "category": "Level & Game Design",
-      "experience_level": "Senior",
-      "job_type": "Contract",
-      "url": "https://remotefirstjobs.com/companies/findem/jobs/senior-ux-designer-contractor-875351",
-      "date_updated": "2026-10-24 21:57 UTC",
-      "raw_date": "Sat, 24 Oct 2026 00:55:11 +0000",
-      "source": "RemoteFirst QA"
+      "source": "RemoteFirst QA",
+      "engine": "Proprietary / Any"
     },
     {
       "id": "8280e48b6611",
@@ -416,20 +349,8 @@
       "url": "https://remotefirstjobs.com/companies/nium/jobs/consultant-compliance-quality-assurance-874423",
       "date_updated": "2026-10-24 21:57 UTC",
       "raw_date": "Thu, 22 Oct 2026 07:56:58 +0000",
-      "source": "RemoteFirst QA"
-    },
-    {
-      "id": "ad8807ab9a1f",
-      "title": "Senior QA Data Engineer at Gradient AI",
-      "company": "Gradient AI",
-      "location": "Remote / Check Listing",
-      "category": "QA & Playtesting",
-      "experience_level": "Senior",
-      "job_type": "Full-Time",
-      "url": "https://remotefirstjobs.com/companies/gradient-ai/jobs/senior-qa-data-engineer-874279",
-      "date_updated": "2026-10-24 21:57 UTC",
-      "raw_date": "Thu, 22 Oct 2026 01:41:06 +0000",
-      "source": "RemoteFirst QA"
+      "source": "RemoteFirst QA",
+      "engine": "Unity"
     },
     {
       "id": "154187973ad3",
@@ -442,7 +363,8 @@
       "url": "https://remotefirstjobs.com/companies/hudl/jobs/quality-assurance-engineer-873903",
       "date_updated": "2026-10-24 21:57 UTC",
       "raw_date": "Wed, 21 Oct 2026 09:42:59 +0000",
-      "source": "RemoteFirst QA"
+      "source": "RemoteFirst QA",
+      "engine": "Proprietary / Any"
     },
     {
       "id": "410eb5454274",
@@ -455,7 +377,8 @@
       "url": "https://remotefirstjobs.com/companies/intelerad-medical-systems/jobs/uiux-researcher-designer-873864",
       "date_updated": "2026-10-24 21:57 UTC",
       "raw_date": "Wed, 21 Oct 2026 08:00:48 +0000",
-      "source": "RemoteFirst QA"
+      "source": "RemoteFirst QA",
+      "engine": "Unity"
     },
     {
       "id": "5548e97f72cb",
@@ -468,7 +391,8 @@
       "url": "https://remotefirstjobs.com/companies/intelerad-medical-systems/jobs/uiux-researcher-designer-873852",
       "date_updated": "2026-10-24 21:57 UTC",
       "raw_date": "Wed, 21 Oct 2026 07:47:56 +0000",
-      "source": "RemoteFirst QA"
+      "source": "RemoteFirst QA",
+      "engine": "Unity"
     },
     {
       "id": "f3af2a5ee8f1",
@@ -481,46 +405,8 @@
       "url": "https://job-boards.greenhouse.io/bungie/jobs/6193602004",
       "date_updated": "2026-10-23",
       "raw_date": "2026-10-23",
-      "source": "Bungie (Direct ATS)"
-    },
-    {
-      "id": "ec2989bcd211",
-      "title": "Senior Investment Designer (Rewards and Commerce)",
-      "company": "Bungie",
-      "location": "United States, Remote",
-      "category": "Level & Game Design",
-      "experience_level": "Senior",
-      "job_type": "Full-Time",
-      "url": "https://job-boards.greenhouse.io/bungie/jobs/6223718004",
-      "date_updated": "2026-10-23",
-      "raw_date": "2026-10-23",
-      "source": "Bungie (Direct ATS)"
-    },
-    {
-      "id": "b862da98c5d5",
-      "title": "Senior UX Designer (CONTRACT) ",
-      "company": "Bungie",
-      "location": "United States, Remote",
-      "category": "Level & Game Design",
-      "experience_level": "Senior",
-      "job_type": "Contract",
-      "url": "https://job-boards.greenhouse.io/bungie/jobs/6212202004",
-      "date_updated": "2026-10-23",
-      "raw_date": "2026-10-23",
-      "source": "Bungie (Direct ATS)"
-    },
-    {
-      "id": "82d94f29928a",
-      "title": "Senior UX Designer (CONTRACT) ",
-      "company": "Bungie",
-      "location": "United States, Remote",
-      "category": "Level & Game Design",
-      "experience_level": "Senior",
-      "job_type": "Contract",
-      "url": "https://job-boards.greenhouse.io/bungie/jobs/6212204004",
-      "date_updated": "2026-10-23",
-      "raw_date": "2026-10-23",
-      "source": "Bungie (Direct ATS)"
+      "source": "Bungie (Direct ATS)",
+      "engine": "Proprietary / Any"
     },
     {
       "id": "56c3c1f26491",
@@ -533,7 +419,8 @@
       "url": "https://www.riotgames.com/en/work-with-us/job/8302722?gh_jid=8302722",
       "date_updated": "2026-10-23",
       "raw_date": "2026-10-23",
-      "source": "Riot Games (Direct ATS)"
+      "source": "Riot Games (Direct ATS)",
+      "engine": "Unity"
     },
     {
       "id": "a89c5f1495d8",
@@ -546,20 +433,8 @@
       "url": "https://www.riotgames.com/en/work-with-us/job/8274627?gh_jid=8274627",
       "date_updated": "2026-10-23",
       "raw_date": "2026-10-23",
-      "source": "Riot Games (Direct ATS)"
-    },
-    {
-      "id": "da35d7322b3f",
-      "title": "Senior QA Engineer",
-      "company": "Epic Games",
-      "location": "BLANK,BLANK,Multiple Locations",
-      "category": "QA & Playtesting",
-      "experience_level": "Senior",
-      "job_type": "Full-Time",
-      "url": "https://epicgames.com/careers/jobs/6231373004?gh_jid=6231373004",
-      "date_updated": "2026-10-21",
-      "raw_date": "2026-10-21",
-      "source": "Epic Games (Direct ATS)"
+      "source": "Riot Games (Direct ATS)",
+      "engine": "Proprietary / Any"
     },
     {
       "id": "57d0c01a9a98",
@@ -572,46 +447,8 @@
       "url": "https://epicgames.com/careers/jobs/6230312004?gh_jid=6230312004",
       "date_updated": "2026-10-20",
       "raw_date": "2026-10-20",
-      "source": "Epic Games (Direct ATS)"
-    },
-    {
-      "id": "4b97ace17b88",
-      "title": "Sr. Game Designer - Soulframe",
-      "company": "Digital Extremes",
-      "location": "London, Ontario or Remote",
-      "category": "Level & Game Design",
-      "experience_level": "Senior",
-      "job_type": "Full-Time",
-      "url": "https://job-boards.greenhouse.io/digitalextremes/jobs/5255630007",
-      "date_updated": "2026-10-14",
-      "raw_date": "2026-10-14",
-      "source": "Digital Extremes (Direct ATS)"
-    },
-    {
-      "id": "a180cfbafb18",
-      "title": "Senior Game Designer",
-      "company": "Epic Games",
-      "location": "Vancouver,British Columbia,Canada",
-      "category": "Level & Game Design",
-      "experience_level": "Senior",
-      "job_type": "Full-Time",
-      "url": "https://epicgames.com/careers/jobs/6006489004?gh_jid=6006489004",
-      "date_updated": "2026-10-13",
-      "raw_date": "2026-10-13",
-      "source": "Epic Games (Direct ATS)"
-    },
-    {
-      "id": "65ab43c375fb",
-      "title": "Senior Game Designer",
-      "company": "Epic Games",
-      "location": "BLANK,BLANK,Multiple Locations",
-      "category": "Level & Game Design",
-      "experience_level": "Senior",
-      "job_type": "Full-Time",
-      "url": "https://epicgames.com/careers/jobs/6006487004?gh_jid=6006487004",
-      "date_updated": "2026-10-13",
-      "raw_date": "2026-10-13",
-      "source": "Epic Games (Direct ATS)"
+      "source": "Epic Games (Direct ATS)",
+      "engine": "Unreal Engine"
     },
     {
       "id": "ec63ea5793b5",
@@ -624,7 +461,8 @@
       "url": "https://www.riotgames.com/en/work-with-us/job/7102266?gh_jid=7102266",
       "date_updated": "2026-10-08",
       "raw_date": "2026-10-08",
-      "source": "Riot Games (Direct ATS)"
+      "source": "Riot Games (Direct ATS)",
+      "engine": "Unreal Engine"
     },
     {
       "id": "a4c20980228e",
@@ -637,7 +475,8 @@
       "url": "https://www.riotgames.com/en/work-with-us/job/7921706?gh_jid=7921706",
       "date_updated": "2026-10-08",
       "raw_date": "2026-10-08",
-      "source": "Riot Games (Direct ATS)"
+      "source": "Riot Games (Direct ATS)",
+      "engine": "Proprietary / Any"
     },
     {
       "id": "dbcb9b11aa5c",
@@ -650,7 +489,8 @@
       "url": "https://www.riotgames.com/en/work-with-us/job/8029746?gh_jid=8029746",
       "date_updated": "2026-10-08",
       "raw_date": "2026-10-08",
-      "source": "Riot Games (Direct ATS)"
+      "source": "Riot Games (Direct ATS)",
+      "engine": "Unreal + Blueprints"
     },
     {
       "id": "140e6d7103b1",
@@ -663,7 +503,8 @@
       "url": "https://www.riotgames.com/en/work-with-us/job/7921716?gh_jid=7921716",
       "date_updated": "2026-10-08",
       "raw_date": "2026-10-08",
-      "source": "Riot Games (Direct ATS)"
+      "source": "Riot Games (Direct ATS)",
+      "engine": "Unreal Engine"
     },
     {
       "id": "50cac340f40f",
@@ -676,59 +517,8 @@
       "url": "https://www.riotgames.com/en/work-with-us/job/8142640?gh_jid=8142640",
       "date_updated": "2026-10-08",
       "raw_date": "2026-10-08",
-      "source": "Riot Games (Direct ATS)"
-    },
-    {
-      "id": "4f890b0c0ea5",
-      "title": "Senior Game Designer",
-      "company": "Epic Games",
-      "location": "BLANK,BLANK,Multiple Locations",
-      "category": "Level & Game Design",
-      "experience_level": "Senior",
-      "job_type": "Full-Time",
-      "url": "https://epicgames.com/careers/jobs/6020030004?gh_jid=6020030004",
-      "date_updated": "2026-09-23",
-      "raw_date": "2026-09-23",
-      "source": "Epic Games (Direct ATS)"
-    },
-    {
-      "id": "81dfe443ffae",
-      "title": "Senior Technical Designer",
-      "company": "Digital Extremes",
-      "location": "London, Ontario or Remote",
-      "category": "Tech & Systems Design",
-      "experience_level": "Senior",
-      "job_type": "Full-Time",
-      "url": "https://job-boards.greenhouse.io/digitalextremes/jobs/5244259007",
-      "date_updated": "2026-09-21",
-      "raw_date": "2026-09-21",
-      "source": "Digital Extremes (Direct ATS)"
-    },
-    {
-      "id": "0af10669d829",
-      "title": "Senior Mobile Game Designer",
-      "company": "Epic Games",
-      "location": "Porto Alegre,Rio Grande do Sul,Brazil",
-      "category": "Level & Game Design",
-      "experience_level": "Senior",
-      "job_type": "Full-Time",
-      "url": "https://epicgames.com/careers/jobs/6000061004?gh_jid=6000061004",
-      "date_updated": "2026-09-09",
-      "raw_date": "2026-09-09",
-      "source": "Epic Games (Direct ATS)"
-    },
-    {
-      "id": "6867785c704d",
-      "title": "Senior Technical UI Designer",
-      "company": "Epic Games",
-      "location": "Montreal,Quebec,Canada",
-      "category": "Level & Game Design",
-      "experience_level": "Entry / Associate",
-      "job_type": "Full-Time",
-      "url": "https://epicgames.com/careers/jobs/5979338004?gh_jid=5979338004",
-      "date_updated": "2026-08-31",
-      "raw_date": "2026-08-31",
-      "source": "Epic Games (Direct ATS)"
+      "source": "Riot Games (Direct ATS)",
+      "engine": "Unity"
     }
   ]
 }
