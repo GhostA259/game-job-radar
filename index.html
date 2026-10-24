@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Game Dev Job Radar</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --border: #334155;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --accent: #3b82f6;
+      --green: #10b981;
+      --amber: #f59e0b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      padding: 1rem;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    header {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .header-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    h1 {
+      margin: 0;
+      font-size: 1.35rem;
+    }
+    .status-bar {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 0.4rem;
+    }
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .btn {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 0.6rem 0.95rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .btn-secondary {
+      background: #334155;
+    }
+    .btn:active { transform: scale(0.98); }
+    .filters-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 0.65rem;
+      margin-top: 1rem;
+    }
+    input, select {
+      width: 100%;
+      background: var(--bg);
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 0.65rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+    }
+    .toggle-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.85rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      align-items: center;
+    }
+    .toggle-row label {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      cursor: pointer;
+    }
+    .toggle-row input { width: auto; }
+    .job-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.15rem;
+      margin-bottom: 0.85rem;
+      transition: border-color 0.15s;
+    }
+    .job-card.priority {
+      border-left: 4px solid var(--green);
+    }
+    .job-card.applied {
+      opacity: 0.55;
+      border-left: 4px solid var(--amber);
+    }
+    .job-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #60a5fa;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.35rem;
+    }
+    .company-line {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-bottom: 0.85rem;
+    }
+    .badge {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      background: #0f172a;
+      border: 1px solid var(--border);
+    }
+    .badge.cat { color: #34d399; border-color: #065f46; }
+    .badge.exp { color: #fbbf24; border-color: #78350f; }
+    .badge.type { color: #93c5fd; border-color: #1e3a8a; }
+    .card-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      border-top: 1px solid var(--border);
+      padding-top: 0.75rem;
+    }
+    .small-btn {
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.65rem;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      cursor: pointer;
+    }
+    .small-btn.active {
+      background: #065f46;
+      color: #fff;
+      border-color: #10b981;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-top">
+        <div>
+          <h1>🎮 Game Job Radar</h1>
+          <div id="statusText" class="status-bar">Loading database...</div>
+        </div>
+        <div class="btn-group">
+          <button id="liveRefreshBtn" class="btn">⚡ Live Scan Now</button>
+          <a id="ghActionLink" href="#" target="_blank" class="btn btn-secondary">🤖 Trigger Cloud Scrape</a>
+        </div>
+      </div>
+
+      <div class="filters-grid">
+        <input type="text" id="searchInput" placeholder="Search Unreal, combat, QA, studio..." />
+        <select id="categoryFilter">
+          <option value="ALL">All Target Categories</option>
+          <option value="Tech & Systems Design">Tech & Systems Design</option>
+          <option value="Level & Game Design">Level & Game Design</option>
+          <option value="QA & Playtesting">QA & Playtesting</option>
+        </select>
+        <select id="expFilter">
+          <option value="ALL">All Experience Levels</option>
+          <option value="Entry / Associate">Entry / Associate / Jr</option>
+          <option value="Mid / Standard">Mid / Standard</option>
+          <option value="Internship">Internship</option>
+        </select>
+        <select id="typeFilter">
+          <option value="ALL">All Job Types</option>
+          <option value="Full-Time">Full-Time</option>
+          <option value="Contract">Contract</option>
+          <option value="Internship">Internship</option>
+          <option value="Part-Time">Part-Time</option>
+        </select>
+      </div>
+
+      <div class="toggle-row">
+        <label><input type="checkbox" id="hideSeniorToggle" checked /> Hide "Senior" Roles</label>
+        <label><input type="checkbox" id="hideAppliedToggle" /> Hide Applied Jobs</label>
+        <span id="countBadge" style="margin-left:auto; font-weight:600;"></span>
+      </div>
+    </header>
+
+    <div id="jobsContainer"></div>
+  </div>
+
+  <script>
+    let allJobs = [];
+    const appliedSet = new Set(JSON.parse(localStorage.getItem("radar_applied") || "[]"));
+    const hiddenSet = new Set(JSON.parse(localStorage.getItem("radar_hidden") || "[]"));
+
+    // Automatically detect GitHub repo URL for the 1-tap Cloud Action button
+    const host = window.location.hostname;
+    const pathParts = window.location.pathname.split("/").filter(Boolean);
+    if (host.includes("github.io") && pathParts.length > 0) {
+      const user = host.split(".")[0];
+      const repo = pathParts[0];
+      document.getElementById("ghActionLink").href = `https://github.com/${user}/${repo}/actions/workflows/run_radar.yml`;
+    } else {
+      document.getElementById("ghActionLink").href = "https://github.com";
+    }
+
+    const BLOCKLIST = [
+      "animator", "animation", "3d artist", "2d artist", "concept artist",
+      "character artist", "environment artist", "vfx artist", "lighting artist",
+      "audio", "sound designer", "composer", "director", "vice president",
+      "principal", "head of", "executive", "marketing", "recruiter", "sales", "legal"
+    ];
+
+    function classifyLiveTitle(title) {
+      const t = title.toLowerCase();
+      if (BLOCKLIST.some(b => t.includes(b))) return null;
+
+      let category = null;
+      if (["technical design", "systems design", "system design", "combat", "gameplay", "unreal", "blueprint", "godot", "scripter"].some(w => t.includes(w))) {
+        category = "Tech & Systems Design";
+      } else if (["level design", "game design", "mission design", "quest design", "encounter", "junior design", "associate design"].some(w => t.includes(w))) {
+        category = "Level & Game Design";
+      } else if (["qa", "quality assurance", "tester", "playtest"].some(w => t.includes(w))) {
+        category = "QA & Playtesting";
+      } else {
+        return null;
+      }
+
+      let exp = "Mid / Standard";
+      if (t.includes("intern")) exp = "Internship";
+      else if (["junior", "jr", "entry", "associate", "grad"].some(w => t.includes(w))) exp = "Entry / Associate";
+      else if (["senior", "sr.", "sr ", "lead"].some(w => t.includes(w))) exp = "Senior";
+
+      let type = t.includes("intern") ? "Internship" : (t.includes("contract") ? "Contract" : "Full-Time");
+      return { category, experience_level: exp, job_type: type };
+    }
+
+    async function loadSavedDatabase() {
+      const statusEl = document.getElementById("statusText");
+      try {
+        const res = await fetch(`jobs_database.json?t=${Date.now()}`);
+        if (!res.ok) throw new Error("No database yet");
+        const data = await res.json();
+        allJobs = data.jobs || [];
+        statusEl.textContent = `Last automated scrape: ${data.last_scraped || "Recently"}`;
+        renderJobs();
+      } catch (e) {
+        statusEl.textContent = "Database initializing — running a live scan right now...";
+        runLiveBrowserScan();
+      }
+    }
+
+    // On-Demand Live Browser Scan (checks Greenhouse APIs + RSS directly from phone/browser)
+    async function runLiveBrowserScan() {
+      const statusEl = document.getElementById("statusText");
+      const btn = document.getElementById("liveRefreshBtn");
+      btn.disabled = true;
+      btn.textContent = "⏳ Scanning Live...";
+      statusEl.textContent = "Scanning studio boards & indie feeds live...";
+
+      const studios = [
+        { name: "Epic Games", token: "epicgames" },
+        { name: "Bungie", token: "bungie" },
+        { name: "Certain Affinity", token: "certainaffinity" },
+        { name: "Digital Extremes", token: "digitalextremes" }
+      ];
+
+      const existingUrls = new Set(allJobs.map(j => j.url));
+      let addedCount = 0;
+
+      for (const st of studios) {
+        try {
+          const res = await fetch(`https://boards-api.greenhouse.io/v1/boards/${st.token}/jobs`);
+          if (!res.ok) continue;
+          const data = await res.json();
+          for (const j of (data.jobs || [])) {
+            if (existingUrls.has(j.absolute_url)) continue;
+            const meta = classifyLiveTitle(j.title || "");
+            if (!meta) continue;
+            allJobs.unshift({
+              id: j.id.toString(),
+              title: j.title,
+              company: st.name,
+              location: (j.location && j.location.name) || "Remote / Studio",
+              category: meta.category,
+              experience_level: meta.experience_level,
+              job_type: meta.job_type,
+              url: j.absolute_url,
+              date_updated: (j.updated_at || "").slice(0, 10) || "Live Just Now",
+              source: `${st.name} (Live)`
+            });
+            existingUrls.add(j.absolute_url);
+            addedCount++;
+          }
+        } catch (err) {
+          console.warn(err);
+        }
+      }
+
+      statusEl.textContent = `Live scan complete! Added ${addedCount} fresh listings (${new Date().toLocaleTimeString()}).`;
+      btn.disabled = false;
+      btn.textContent = "⚡ Live Scan Now";
+      renderJobs();
+    }
+
+    function toggleApplied(id) {
+      if (appliedSet.has(id)) appliedSet.delete(id);
+      else appliedSet.add(id);
+      localStorage.setItem("radar_applied", JSON.stringify([...appliedSet]));
+      renderJobs();
+    }
+
+    function hideJob(id) {
+      hiddenSet.add(id);
+      localStorage.setItem("radar_hidden", JSON.stringify([...hiddenSet]));
+      renderJobs();
+    }
+
+    function renderJobs() {
+      const container = document.getElementById("jobsContainer");
+      const search = document.getElementById("searchInput").value.toLowerCase();
+      const cat = document.getElementById("categoryFilter").value;
+      const exp = document.getElementById("expFilter").value;
+      const type = document.getElementById("typeFilter").value;
+      const hideSenior = document.getElementById("hideSeniorToggle").checked;
+      const hideApplied = document.getElementById("hideAppliedToggle").checked;
+
+      const filtered = allJobs.filter(job => {
+        if (hiddenSet.has(job.id)) return false;
+        if (hideApplied && appliedSet.has(job.id)) return false;
+        if (hideSenior && job.experience_level === "Senior") return false;
+        if (cat !== "ALL" && job.category !== cat) return false;
+        if (exp !== "ALL" && job.experience_level !== exp) return false;
+        if (type !== "ALL" && job.job_type !== type) return false;
+        if (search) {
+          const text = `${job.title} ${job.company} ${job.location} ${job.category}`.toLowerCase();
+          if (!text.includes(search)) return false;
+        }
+        return true;
+      });
+
+      document.getElementById("countBadge").textContent = `${filtered.length} Matching Jobs`;
+
+      if (filtered.length === 0) {
+        container.innerHTML = `<div class="job-card">No jobs match your current filters. Try clicking "⚡ Live Scan Now" or adjusting filters above.</div>`;
+        return;
+      }
+
+      container.innerHTML = filtered.map(job => {
+        const isApplied = appliedSet.has(job.id);
+        const isPriority = job.category === "Tech & Systems Design" || job.experience_level === "Entry / Associate";
+        return `
+          <div class="job-card ${isPriority ? 'priority' : ''} ${isApplied ? 'applied' : ''}">
+            <a class="job-title" href="${job.url}" target="_blank" rel="noopener noreferrer">
+              ${job.title}
+            </a>
+            <div class="company-line">
+              <strong>${job.company}</strong> • 📍 ${job.location} • 🗓️ ${job.date_updated}
+            </div>
+            <div class="badges">
+              <span class="badge cat">🎯 ${job.category}</span>
+              <span class="badge exp">📊 ${job.experience_level}</span>
+              <span class="badge type">💼 ${job.job_type}</span>
+              <span class="badge">📡 ${job.source}</span>
+            </div>
+            <div class="card-actions">
+              <a href="${job.url}" target="_blank" rel="noopener noreferrer" class="btn" style="padding:0.4rem 0.8rem; font-size:0.8rem;">Apply / View Listing ↗</a>
+              <div>
+                <button class="small-btn ${isApplied ? 'active' : ''}" onclick="toggleApplied('${job.id}')">
+                  ${isApplied ? '✅ Applied' : 'Mark Applied'}
+                </button>
+                <button class="small-btn" onclick="hideJob('${job.id}')">🗑️ Hide</button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    document.getElementById("liveRefreshBtn").addEventListener("click", runLiveBrowserScan);
+    ["searchInput", "categoryFilter", "expFilter", "typeFilter", "hideSeniorToggle", "hideAppliedToggle"].forEach(id => {
+      document.getElementById(id).addEventListener("input", renderJobs);
+      document.getElementById(id).addEventListener("change", renderJobs);
+    });
+
+    loadSavedDatabase();
+  </script>
+</body>
+</html>
