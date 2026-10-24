@@ -14,6 +14,7 @@
       --accent: #3b82f6;
       --green: #10b981;
       --amber: #f59e0b;
+      --purple: #a855f7;
     }
     * { box-sizing: border-box; }
     body {
@@ -24,7 +25,7 @@
       padding: 1rem;
     }
     .container {
-      max-width: 900px;
+      max-width: 920px;
       margin: 0 auto;
     }
     header {
@@ -75,7 +76,7 @@
     .btn:active { transform: scale(0.98); }
     .filters-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
       gap: 0.65rem;
       margin-top: 1rem;
     }
@@ -86,7 +87,7 @@
       border: 1px solid var(--border);
       padding: 0.65rem;
       border-radius: 8px;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
     }
     .toggle-row {
       display: flex;
@@ -145,6 +146,7 @@
       background: #0f172a;
       border: 1px solid var(--border);
     }
+    .badge.eng-ue { color: #c084fc; border-color: #6b21a8; font-weight: 600; }
     .badge.cat { color: #34d399; border-color: #065f46; }
     .badge.exp { color: #fbbf24; border-color: #78350f; }
     .badge.type { color: #93c5fd; border-color: #1e3a8a; }
@@ -188,21 +190,29 @@
       </div>
 
       <div class="filters-grid">
-        <input type="text" id="searchInput" placeholder="Search Unreal, combat, QA, studio..." />
+        <input type="text" id="searchInput" placeholder="Search Blueprints, combat, studio..." />
+        <select id="engineFilter">
+          <option value="ALL">⚙️ All Engines</option>
+          <option value="UNREAL_ANY">🔥 All Unreal Engine Roles</option>
+          <option value="Unreal + Blueprints">⚡ Unreal + Blueprints Only</option>
+          <option value="Godot">🤖 Godot</option>
+          <option value="Unity">🧊 Unity</option>
+          <option value="Proprietary / Any">🛠️ Proprietary / Any</option>
+        </select>
         <select id="categoryFilter">
-          <option value="ALL">All Target Categories</option>
+          <option value="ALL">🎯 All Target Categories</option>
           <option value="Tech & Systems Design">Tech & Systems Design</option>
           <option value="Level & Game Design">Level & Game Design</option>
           <option value="QA & Playtesting">QA & Playtesting</option>
         </select>
         <select id="expFilter">
-          <option value="ALL">All Experience Levels</option>
+          <option value="ALL">📊 All Experience Levels</option>
           <option value="Entry / Associate">Entry / Associate / Jr</option>
           <option value="Mid / Standard">Mid / Standard</option>
           <option value="Internship">Internship</option>
         </select>
         <select id="typeFilter">
-          <option value="ALL">All Job Types</option>
+          <option value="ALL">💼 All Job Types</option>
           <option value="Full-Time">Full-Time</option>
           <option value="Contract">Contract</option>
           <option value="Internship">Internship</option>
@@ -211,7 +221,7 @@
       </div>
 
       <div class="toggle-row">
-        <label><input type="checkbox" id="hideSeniorToggle" checked /> Hide "Senior" Roles</label>
+        <label><input type="checkbox" id="prioritizeUnrealToggle" checked /> Pin Unreal / Blueprints Jobs to Top</label>
         <label><input type="checkbox" id="hideAppliedToggle" /> Hide Applied Jobs</label>
         <span id="countBadge" style="margin-left:auto; font-weight:600;"></span>
       </div>
@@ -225,7 +235,6 @@
     const appliedSet = new Set(JSON.parse(localStorage.getItem("radar_applied") || "[]"));
     const hiddenSet = new Set(JSON.parse(localStorage.getItem("radar_hidden") || "[]"));
 
-    // Automatically detect GitHub repo URL for the 1-tap Cloud Action button
     const host = window.location.hostname;
     const pathParts = window.location.pathname.split("/").filter(Boolean);
     if (host.includes("github.io") && pathParts.length > 0) {
@@ -237,13 +246,28 @@
     }
 
     const BLOCKLIST = [
-      "animator", "animation", "3d artist", "2d artist", "concept artist",
-      "character artist", "environment artist", "vfx artist", "lighting artist",
-      "audio", "sound designer", "composer", "director", "vice president",
-      "principal", "head of", "executive", "marketing", "recruiter", "sales", "legal"
+      "senior", "sr.", "sr ", "lead ", "director", "vice president", "principal", "head of",
+      "executive", "staff ", "animator", "animation", "3d artist", "2d artist", "concept artist",
+      "character artist", "environment artist", "vfx artist", "lighting artist", "tech artist",
+      "technical artist", "audio", "sound designer", "composer", "marketing", "recruiter", "sales", "legal"
     ];
 
-    function classifyLiveTitle(title) {
+    function detectEngineJS(title, desc, company) {
+      const combined = `${title} ${desc || ""} ${company || ""}`.toLowerCase();
+      const hasUnreal = ["unreal", "ue5", "ue4", "epic games"].some(w => combined.includes(w));
+      const hasBP = ["blueprint", "blueprints", "visual scripting", "umg", "niagara", "gameplay ability system"].some(w => combined.includes(w));
+      const hasGodot = ["godot", "gdscript"].some(w => combined.includes(w));
+      const hasUnity = ["unity", "unity3d"].some(w => combined.includes(w));
+
+      if (hasUnreal && hasBP) return "Unreal + Blueprints";
+      if (hasBP) return "Unreal + Blueprints";
+      if (hasUnreal) return "Unreal Engine";
+      if (hasGodot) return "Godot";
+      if (hasUnity) return "Unity";
+      return "Proprietary / Any";
+    }
+
+    function classifyLiveJob(title, desc = "", company = "") {
       const t = title.toLowerCase();
       if (BLOCKLIST.some(b => t.includes(b))) return null;
 
@@ -261,10 +285,10 @@
       let exp = "Mid / Standard";
       if (t.includes("intern")) exp = "Internship";
       else if (["junior", "jr", "entry", "associate", "grad"].some(w => t.includes(w))) exp = "Entry / Associate";
-      else if (["senior", "sr.", "sr ", "lead"].some(w => t.includes(w))) exp = "Senior";
 
       let type = t.includes("intern") ? "Internship" : (t.includes("contract") ? "Contract" : "Full-Time");
-      return { category, experience_level: exp, job_type: type };
+      let engine = detectEngineJS(title, desc, company);
+      return { category, experience_level: exp, job_type: type, engine };
     }
 
     async function loadSavedDatabase() {
@@ -273,7 +297,10 @@
         const res = await fetch(`jobs_database.json?t=${Date.now()}`);
         if (!res.ok) throw new Error("No database yet");
         const data = await res.json();
-        allJobs = data.jobs || [];
+        allJobs = (data.jobs || []).map(j => ({
+          ...j,
+          engine: j.engine || detectEngineJS(j.title, "", j.company)
+        }));
         statusEl.textContent = `Last automated scrape: ${data.last_scraped || "Recently"}`;
         renderJobs();
       } catch (e) {
@@ -282,13 +309,12 @@
       }
     }
 
-    // On-Demand Live Browser Scan (checks Greenhouse APIs + RSS directly from phone/browser)
     async function runLiveBrowserScan() {
       const statusEl = document.getElementById("statusText");
       const btn = document.getElementById("liveRefreshBtn");
       btn.disabled = true;
       btn.textContent = "⏳ Scanning Live...";
-      statusEl.textContent = "Scanning studio boards & indie feeds live...";
+      statusEl.textContent = "Scanning studio descriptions for Unreal, Blueprints & Design/QA roles...";
 
       const studios = [
         { name: "Epic Games", token: "epicgames" },
@@ -302,12 +328,12 @@
 
       for (const st of studios) {
         try {
-          const res = await fetch(`https://boards-api.greenhouse.io/v1/boards/${st.token}/jobs`);
+          const res = await fetch(`https://boards-api.greenhouse.io/v1/boards/${st.token}/jobs?content=true`);
           if (!res.ok) continue;
           const data = await res.json();
           for (const j of (data.jobs || [])) {
             if (existingUrls.has(j.absolute_url)) continue;
-            const meta = classifyLiveTitle(j.title || "");
+            const meta = classifyLiveJob(j.title || "", j.content || "", st.name);
             if (!meta) continue;
             allJobs.unshift({
               id: j.id.toString(),
@@ -317,6 +343,7 @@
               category: meta.category,
               experience_level: meta.experience_level,
               job_type: meta.job_type,
+              engine: meta.engine,
               url: j.absolute_url,
               date_updated: (j.updated_at || "").slice(0, 10) || "Live Just Now",
               source: `${st.name} (Live)`
@@ -329,7 +356,7 @@
         }
       }
 
-      statusEl.textContent = `Live scan complete! Added ${addedCount} fresh listings (${new Date().toLocaleTimeString()}).`;
+      statusEl.textContent = `Live scan complete! Added ${addedCount} non-senior matches (${new Date().toLocaleTimeString()}).`;
       btn.disabled = false;
       btn.textContent = "⚡ Live Scan Now";
       renderJobs();
@@ -351,36 +378,60 @@
     function renderJobs() {
       const container = document.getElementById("jobsContainer");
       const search = document.getElementById("searchInput").value.toLowerCase();
+      const eng = document.getElementById("engineFilter").value;
       const cat = document.getElementById("categoryFilter").value;
       const exp = document.getElementById("expFilter").value;
       const type = document.getElementById("typeFilter").value;
-      const hideSenior = document.getElementById("hideSeniorToggle").checked;
+      const pinUnreal = document.getElementById("prioritizeUnrealToggle").checked;
       const hideApplied = document.getElementById("hideAppliedToggle").checked;
 
-      const filtered = allJobs.filter(job => {
+      let filtered = allJobs.filter(job => {
         if (hiddenSet.has(job.id)) return false;
         if (hideApplied && appliedSet.has(job.id)) return false;
-        if (hideSenior && job.experience_level === "Senior") return false;
+        if (BLOCKLIST.some(b => (job.title || "").toLowerCase().includes(b))) return false;
+
+        const jobEng = job.engine || "Proprietary / Any";
+        if (eng === "UNREAL_ANY") {
+          if (!jobEng.includes("Unreal")) return false;
+        } else if (eng !== "ALL" && jobEng !== eng) {
+          return false;
+        }
+
         if (cat !== "ALL" && job.category !== cat) return false;
         if (exp !== "ALL" && job.experience_level !== exp) return false;
         if (type !== "ALL" && job.job_type !== type) return false;
         if (search) {
-          const text = `${job.title} ${job.company} ${job.location} ${job.category}`.toLowerCase();
+          const text = `${job.title} ${job.company} ${job.location} ${job.category} ${jobEng}`.toLowerCase();
           if (!text.includes(search)) return false;
         }
         return true;
       });
 
+      if (pinUnreal) {
+        filtered.sort((a, b) => {
+          const score = (j) => {
+            if (j.engine === "Unreal + Blueprints") return 3;
+            if (j.engine === "Unreal Engine") return 2;
+            if (j.engine === "Godot") return 1;
+            return 0;
+          };
+          return score(b) - score(a);
+        });
+      }
+
       document.getElementById("countBadge").textContent = `${filtered.length} Matching Jobs`;
 
       if (filtered.length === 0) {
-        container.innerHTML = `<div class="job-card">No jobs match your current filters. Try clicking "⚡ Live Scan Now" or adjusting filters above.</div>`;
+        container.innerHTML = `<div class="job-card">No jobs match your current filters. Try switching the Engine filter or clicking "⚡ Live Scan Now".</div>`;
         return;
       }
 
       container.innerHTML = filtered.map(job => {
         const isApplied = appliedSet.has(job.id);
-        const isPriority = job.category === "Tech & Systems Design" || job.experience_level === "Entry / Associate";
+        const jobEng = job.engine || "Proprietary / Any";
+        const isUnreal = jobEng.includes("Unreal");
+        const isPriority = isUnreal || job.category === "Tech & Systems Design" || job.experience_level === "Entry / Associate";
+
         return `
           <div class="job-card ${isPriority ? 'priority' : ''} ${isApplied ? 'applied' : ''}">
             <a class="job-title" href="${job.url}" target="_blank" rel="noopener noreferrer">
@@ -390,6 +441,7 @@
               <strong>${job.company}</strong> • 📍 ${job.location} • 🗓️ ${job.date_updated}
             </div>
             <div class="badges">
+              <span class="badge ${isUnreal ? 'eng-ue' : ''}">⚙️ ${jobEng}</span>
               <span class="badge cat">🎯 ${job.category}</span>
               <span class="badge exp">📊 ${job.experience_level}</span>
               <span class="badge type">💼 ${job.job_type}</span>
@@ -410,7 +462,7 @@
     }
 
     document.getElementById("liveRefreshBtn").addEventListener("click", runLiveBrowserScan);
-    ["searchInput", "categoryFilter", "expFilter", "typeFilter", "hideSeniorToggle", "hideAppliedToggle"].forEach(id => {
+    ["searchInput", "engineFilter", "categoryFilter", "expFilter", "typeFilter", "prioritizeUnrealToggle", "hideAppliedToggle"].forEach(id => {
       document.getElementById(id).addEventListener("input", renderJobs);
       document.getElementById(id).addEventListener("change", renderJobs);
     });
