@@ -61,7 +61,7 @@ HARD_BLOCKLIST_TITLES = [
     "audio", "sound designer", "composer", "voice",
     # Unobtainable Executive / Ultra-Senior Roles
     "director", "vice president", "vp ", "principal", "head of", "chief",
-    "executive", "staff ", "sr. director", "senior director", "lead ", "senior lead",
+    "executive", "staff ", "sr. director", "senior director", "lead ", "senior lead" "senior", "sr.",
     # Corporate / Non-Dev / Spam
     "marketing", "recruiter", "talent acquisition", "accountant", "finance",
     "legal", "counsel", "sales", "public relations", "social media", "community manager",
