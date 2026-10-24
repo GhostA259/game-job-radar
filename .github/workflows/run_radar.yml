@@ -1,0 +1,38 @@
+name: Game Job Radar (12-Hour & On-Demand)
+
+on:
+  schedule:
+    # Runs automatically every 12 hours (12:00 AM and 12:00 PM UTC)
+    - cron: '0 0,12 * * *'
+  workflow_dispatch: # Enables the manual "Run workflow" button on mobile/desktop
+
+permissions:
+  contents: write
+
+jobs:
+  scrape-jobs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Requests Library
+        run: pip install requests
+
+      - name: Run Scraper & Push to Discord
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          DASHBOARD_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
+        run: python scraper.py
+
+      - name: Save Updated Jobs Database to Web App
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add jobs_database.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update job listings [skip ci]" && git push)
