@@ -1,7 +1,21 @@
 {
-  "last_scraped": "2026-10-28 08:22 UTC",
-  "total_jobs": 37,
+  "last_scraped": "2026-10-28 16:35 UTC",
+  "total_jobs": 38,
   "jobs": [
+    {
+      "id": "7aa599bb9c93",
+      "title": "Associate Instructional Designer (Life Sciences) at Prominence Advisors",
+      "company": "Prominence Advisors",
+      "location": "Remote / Check Listing",
+      "category": "Level & Game Design",
+      "experience_level": "Entry / Associate",
+      "job_type": "Full-Time",
+      "engine": "Unity",
+      "url": "https://remotefirstjobs.com/companies/prominence-advisors/jobs/associate-instructional-designer-life-sciences-876613",
+      "date_updated": "2026-10-28 16:35 UTC",
+      "raw_date": "Wed, 28 Oct 2026 08:02:57 +0000",
+      "source": "RemoteFirst Entry-Level"
+    },
     {
       "id": "c79a41b35d80",
       "title": "Alex Le Mesurier is hiring a Freelance Game & Narrative Designer to work from Anywhere",
