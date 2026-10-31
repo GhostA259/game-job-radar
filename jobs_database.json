@@ -1,7 +1,35 @@
 {
-  "last_scraped": "2026-10-31 05:29 UTC",
-  "total_jobs": 42,
+  "last_scraped": "2026-10-31 12:16 UTC",
+  "total_jobs": 44,
   "jobs": [
+    {
+      "id": "7e205bbdaeb2",
+      "title": "Claims Quality Assurance Supervisor at WelbeHealth",
+      "company": "WelbeHealth",
+      "location": "Remote / Check Listing",
+      "category": "QA & Playtesting",
+      "experience_level": "Mid / Standard",
+      "job_type": "Full-Time",
+      "engine": "Unity",
+      "url": "https://remotefirstjobs.com/companies/welbehealth/jobs/claims-quality-assurance-supervisor-877996",
+      "date_updated": "2026-10-31 12:16 UTC",
+      "raw_date": "Sat, 31 Oct 2026 01:05:13 +0000",
+      "source": "RemoteFirst QA"
+    },
+    {
+      "id": "d6fbcc9a6493",
+      "title": "Associate Graphic Designer at Zwift",
+      "company": "Zwift",
+      "location": "Remote / Check Listing",
+      "category": "Level & Game Design",
+      "experience_level": "Entry / Associate",
+      "job_type": "Full-Time",
+      "engine": "Unity",
+      "url": "https://remotefirstjobs.com/companies/zwift/jobs/associate-graphic-designer-877982",
+      "date_updated": "2026-10-31 12:16 UTC",
+      "raw_date": "Sat, 31 Oct 2026 00:20:00 +0000",
+      "source": "RemoteFirst Entry-Level"
+    },
     {
       "id": "148fa2895a15",
       "title": "Product Designer at Sirona Medical",
